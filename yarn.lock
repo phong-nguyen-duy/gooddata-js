@@ -273,6 +273,24 @@
     line-replace "^1.0.2"
     linebyline "^1.3.0"
 
+"@gooddata/gooddata-js@^13.1.4":
+  version "13.1.4"
+  resolved "https://registry.yarnpkg.com/@gooddata/gooddata-js/-/gooddata-js-13.1.4.tgz#8a84dab9f6b9b0336e8161040b51704dba7a1a75"
+  integrity sha512-yrlBk3TImXfIqAI7JeyC2bMxJZJElHJF2YjJeXr/d3YwWUrK3UaNDaloNajByR7z6MhHl8EtmuANUzvh+fBGbA==
+  dependencies:
+    "@gooddata/typings" "^2.26.0"
+    es6-promise "^3.0.2"
+    fetch-cookie "^0.7.0"
+    invariant "^2.2.2"
+    isomorphic-fetch "^2.2.1"
+    json-stable-stringify "^1.0.1"
+    lodash "^4.7.11"
+    md5 "^2.2.1"
+    node-fetch "^1.7.3"
+    qs "^6.5.1"
+    rxjs "^5.5.6"
+    uuid "^3.2.1"
+
 "@gooddata/grunt-grizzly@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@gooddata/grunt-grizzly/-/grunt-grizzly-2.0.0.tgz#f306775483606d54c89b2ea6d4ae8762b5130c55"

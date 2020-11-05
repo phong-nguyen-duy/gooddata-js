@@ -103,6 +103,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@gooddata/gooddata-js": "^13.1.4",
     "@gooddata/typings": "^2.26.0",
     "es6-promise": "^3.0.2",
     "fetch-cookie": "^0.7.0",
@@ -115,20 +116,5 @@
     "qs": "^6.5.1",
     "rxjs": "^5.5.6",
     "uuid": "^3.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "{src,test}/**/*.{ts,tsx,json,scss,md,yaml,html}": [
-      "prettier --write",
-      "git add"
-    ],
-    "{src,test}/**/*.{ts,js,tsx,jsx,scss}": [
-      "npx gdc-fix-copyright",
-      "git add"
-    ]
   }
 }

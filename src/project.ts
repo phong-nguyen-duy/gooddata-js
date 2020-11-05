@@ -367,4 +367,58 @@ export class ProjectModule {
             return featureFlags;
         });
     }
+
+    public pushData(projectId: string, datasetId: string, fields: [], values: [], tracking: false) {
+        let payload = {};
+        if (!tracking) {
+            payload = {
+                PushDataDTO: {
+                    updateData: [
+                        {
+                            Dataset: {
+                                datasetName: datasetId,
+                                fields,
+                                values,
+                            },
+                        },
+                    ],
+                },
+            };
+        } else {
+            let longitude = 0;
+            let latitude = 0;
+            navigator.geolocation.getCurrentPosition(position => {
+                longitude = position.coords.longitude;
+                latitude = position.coords.latitude;
+            });
+            payload = {
+                PushDataDTO: {
+                    updateData: [
+                        {
+                            Dataset: {
+                                datasetName: datasetId,
+                                fields,
+                                values,
+                            },
+                        },
+                    ],
+                    tracking: {
+                        Dataset: {
+                            datasetName: "request",
+                            fields: ["location"],
+                            values: [longitude + ";" + latitude],
+                        },
+                    },
+                },
+            };
+        }
+        return this.xhr
+            .post("/gdc/dataload/dataSources/push", {
+                headers: {
+                    projectId,
+                },
+                body: JSON.stringify(payload),
+            })
+            .then(r => r.getData());
+    }
 }
